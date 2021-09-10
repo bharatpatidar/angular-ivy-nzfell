@@ -24,20 +24,20 @@ export class AppComponent implements OnInit {
     of(this.productList)
       .pipe(
         map(products =>
-          products.map(product => ({
-            ...product,
-            Price: product.Price * 100,
-            NewKey: 'Bharat'
-          }))
+          // products.map(product => ({
+          //   ...product,
+          //   Price: product.Price * 100,
+          //   NewKey: 'Bharat'
+          // }))
+          products.map(product => product.Price * 100)
         )
       )
       .subscribe(next => {
         console.log(next);
       });
-    let name: any = [{ name: 'bharat', price: 100 }];
-    name.forEach(item => {
-      item.Bharat = 'Name';
-    });
-    console.log(name);
+      let produ = this.productList.map(product=> ({...product, Price :product.Price * 100}));
+      let produ1 = this.productList.map(product=> product.Price * 100);
+      console.log(produ)
+      console.log(produ1)
   }
 }
